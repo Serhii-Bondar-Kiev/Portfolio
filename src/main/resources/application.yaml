@@ -1,0 +1,48 @@
+server:
+  servlet:
+    context-path: /api
+  port: 8081
+
+# Custom section for multiple data sources
+data:
+  sources:
+  - name: data-base-1
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5432/database1
+    table: users
+    user: testuser
+    password: testpass
+    mapping:
+      id: user_id
+      username: login
+      name: first_name
+      surname: last_name
+  - name: data-base-2
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5432/database2
+    table: user_table
+    user: testuser
+    password: testpass
+    mapping:
+      id: ldap_login
+      username: ldap_login
+      name: name
+      surname: surname
+
+logging:
+  level:
+    org:
+      springdoc: DEBUG
+      springframework:
+        web:
+          servlet: DEBUG
+    ua:
+      comparus: DEBUG
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
