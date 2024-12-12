@@ -40,7 +40,6 @@ public class UserAggregationService {
                 users.add(new User(id, username, name, surname));
             }
         }
-
         return users;
     }
 }
