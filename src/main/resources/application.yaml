@@ -2,12 +2,6 @@ server:
   servlet:
     context-path: /api
   port: 8081
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/database1
-    username: testuser
-    password: testpass
-    driver-class-name: org.postgresql.Driver
 
 data:
   sources:
