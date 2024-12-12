@@ -2,8 +2,11 @@ server:
   servlet:
     context-path: /api
   port: 8081
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/database1
+#    driver-class-name: org.postgresql.Driver
 
-# Custom section for multiple data sources
 data:
   sources:
   - name: data-base-1

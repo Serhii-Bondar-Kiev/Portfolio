@@ -1,0 +1,52 @@
+
+networks:
+  backend:
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+      - SKIP_TESTS=true
+    ports:
+    - "8080:8081"
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/testdb
+#      SPRING_DATASOURCE_USERNAME: testuser
+#      SPRING_DATASOURCE_PASSWORD: testpass
+    depends_on:
+    - postgres
+    - mysql
+
+  postgres:
+    image: postgres:15.2
+    container_name: postgres
+    environment:
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpass
+    ports:
+    - "5432:5432"
+    volumes:
+    - ./postgres/data:/var/lib/postgresql/data
+    - ./postgres/init-databases.sh:/docker-entrypoint-initdb.d/init-databases.sh:ro
+    networks:
+    - backend
+
+  mysql:
+    image: mariadb:10.3.8
+    command:
+      - --default-authentication-plugin=mysql_native_password --skip_name_resolve
+      - --bind-address=0.0.0.0
+    container_name: mysql
+    restart: unless-stopped
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/logs:/var/log/mysql/
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD="true"
+    networks:
+      - backend
