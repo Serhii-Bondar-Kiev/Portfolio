@@ -2,6 +2,7 @@
 
 ### How to run 
  - install docker
+ - mvn clean package -DskipTests
  - docker-compose up -d
 
 ### Task definition
