@@ -4,5 +4,5 @@ spring:
     url: jdbc:tc:postgresql:15.2:///testdb
     username: testuser
     password: testpass
-    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+#    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
 

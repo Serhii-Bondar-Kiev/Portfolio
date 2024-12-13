@@ -1,9 +1,19 @@
 # Test task for Java candidate
 
-### How to run 
- - install docker
- - mvn clean package -DskipTests
- - docker-compose up -d
+### How to test and run 
+
+#### Prerequisites
+ - install docker [Docker](https://docs.docker.com/engine/install/)
+ - install maven [maven](https://maven.apache.org/install.html)
+
+#### Build local
+```shell
+mvn clean package -DskipTests
+```
+#### Build and run in Docker
+```shell
+docker-compose up -d
+```
 
 ### Task definition
 You should create service for aggregating users data from multiple databases. Application must

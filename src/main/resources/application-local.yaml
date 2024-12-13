@@ -1,13 +1,13 @@
 server:
   servlet:
     context-path: /api
-  port: 8080
+  port: 8081
 
 data:
   sources:
   - name: data-base-1
     strategy: postgres
-    url: jdbc:postgresql://postgres:5432/database1
+    url: jdbc:postgresql://localhost:5432/database1
     table: users
     user: testuser
     password: testpass
@@ -18,7 +18,7 @@ data:
       surname: last_name
   - name: data-base-2
     strategy: postgres
-    url: jdbc:postgresql://postgres:5432/database2
+    url: jdbc:postgresql://localhost:5432/database2
     table: user_table
     user: testuser
     password: testpass
@@ -42,10 +42,4 @@ logging:
     ua:
       comparus: DEBUG
 
-springdoc:
-  api-docs:
-    enabled: true
-    path: /v3/api-docs
-  swagger-ui:
-    path: /swagger-ui.html
 
