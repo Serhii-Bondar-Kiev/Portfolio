@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("integration-test")
 @AutoConfigureMockMvc
 @SpringBootTest(classes = GetUsersTestTaskApplication.class)
-public class UserRepositoryIntegrationTest {
+public class UserControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -31,9 +31,12 @@ public class UserRepositoryIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private DataSourceConfig dataSourceConfig;
+
     @Container
     private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:15.2")
-            .withDatabaseName("testdb")
+            .withDatabaseName("database1")
             .withUsername("testuser")
             .withPassword("testpass")
             .withInitScript("init-schema.sql");

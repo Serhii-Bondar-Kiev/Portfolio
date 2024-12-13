@@ -30,15 +30,6 @@ data:
 
 logging:
   level:
-    com:
-      zaxxer:
-        hikari: DEBUG
-    org:
-      springdoc: DEBUG
-      springframework:
-        jdbc: DEBUG
-        web:
-          servlet: DEBUG
     ua:
       comparus: DEBUG
 
