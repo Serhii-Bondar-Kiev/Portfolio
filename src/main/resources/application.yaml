@@ -7,7 +7,7 @@ data:
   sources:
   - name: data-base-1
     strategy: postgres
-    url: jdbc:postgresql://localhost:5432/database1
+    url: jdbc:postgresql://postgres:5432/database1
     table: users
     user: testuser
     password: testpass
@@ -18,7 +18,7 @@ data:
       surname: last_name
   - name: data-base-2
     strategy: postgres
-    url: jdbc:postgresql://localhost:5432/database2
+    url: jdbc:postgresql://postgres:5432/database2
     table: user_table
     user: testuser
     password: testpass
@@ -30,9 +30,13 @@ data:
 
 logging:
   level:
+    com:
+      zaxxer:
+        hikari: DEBUG
     org:
       springdoc: DEBUG
       springframework:
+        jdbc: DEBUG
         web:
           servlet: DEBUG
     ua:
